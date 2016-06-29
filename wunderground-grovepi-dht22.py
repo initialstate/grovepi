@@ -174,7 +174,7 @@ def main():
         # -------------- Wunderground --------------
         conditions = get_conditions()
         astronomy = get_astronomy()
-        if ((conditions != False) and (astronomy != False)):
+        if ('current_observation' not in conditions) or ('moon_phase' not in astronomy):
             humidity_pct = conditions['current_observation']['relative_humidity']
             humidity = humidity_pct.replace("%","")
 
