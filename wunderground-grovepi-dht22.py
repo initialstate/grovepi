@@ -175,6 +175,8 @@ def main():
         conditions = get_conditions()
         astronomy = get_astronomy()
         if ('current_observation' not in conditions) or ('moon_phase' not in astronomy):
+			print "Error! Wunderground API call failed. Skipping a reading then continuing ..."
+		else:
             humidity_pct = conditions['current_observation']['relative_humidity']
             humidity = humidity_pct.replace("%","")
 
